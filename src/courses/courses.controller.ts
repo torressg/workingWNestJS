@@ -1,8 +1,11 @@
 import { Body, Controller, Get, Param, Patch, Post, Res } from '@nestjs/common';
 import { ValidateNumericIdPipe } from 'src/validate-id/validate-id.interceptor';
+import { CoursesService } from './courses.service';
 
 @Controller('courses')
 export class CoursesController {
+  constructor(private readonly courseService: CoursesService) { }
+
   @Get()
   findAll(@Res() response) {
     return response.status(200).json({ message: 'Listagem de cursos' })
