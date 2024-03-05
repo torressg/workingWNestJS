@@ -37,6 +37,7 @@ export class CoursesService {
     }
 
     remove(id: number) {
+        id = Number(id)
         const index = this.courses.findIndex(course => course.id === id)
 
         if (index >= 0) {
