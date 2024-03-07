@@ -12,12 +12,14 @@ export class CoursesController {
   }
 
   @Get(':id')
-  findOne(@Param('id', new ValidateNumericIdPipe()) id: number) {
-    const course = this.courseService.findOne(id)
-    if(!course) {
-      throw new HttpException(`Course ${id} not found.`, HttpStatus.NOT_FOUND)
+  findOne(@Param('id', new ValidateNumericIdPipe()) id: number): any {
+    const course = this.courseService.findOne(id);
+    if (!course) {
+      throw new HttpException(`Course ${id} not found.`, HttpStatus.NOT_FOUND);
     }
+    return course; // Adicione esta linha para retornar o curso encontrado
   }
+
 
   @Post()
   create(@Body() body) {
