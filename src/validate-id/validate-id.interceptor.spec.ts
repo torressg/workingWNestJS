@@ -1,7 +1,7 @@
-import { ValidateIdInterceptor } from './validate-id.interceptor';
+import { ValidateNumericIdPipe } from './validate-id.interceptor';
 
 describe('ValidateIdInterceptor', () => {
   it('should be defined', () => {
-    expect(new ValidateIdInterceptor()).toBeDefined();
+    expect(new ValidateNumericIdPipe()).toBeDefined();
   });
 });
